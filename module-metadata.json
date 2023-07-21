@@ -32,6 +32,23 @@
         "resolved_to:name"
       ]
     },
+    "iam_service_id_tags": {
+      "name": "iam_service_id_tags",
+      "type": "list(string)",
+      "description": "List of resource tags to apply to resources created by this module.",
+      "default": [],
+      "source": [
+        "ibm_iam_service_id.service_id.tags"
+      ],
+      "pos": {
+        "filename": "variables.tf",
+        "line": 22
+      },
+      "cloud_data_type": "tags",
+      "elem": {
+        "type": "TypeString"
+      }
+    },
     "iam_service_policies": {
       "name": "iam_service_policies",
       "type": "map(object({\n    roles              = list(string)\n    account_management = optional(bool)\n    tags               = optional(set(string))\n    resources = optional(list(object({\n      region               = optional(string)\n      attributes           = optional(map(string))\n      service              = optional(string)\n      resource_instance_id = optional(string)\n      resource_type        = optional(string)\n      resource             = optional(string)\n      resource_group_id    = optional(string)\n    })))\n    resource_attributes = optional(list(object({\n      name     = string\n      value    = string\n      operator = optional(string)\n    })))\n  }))",
@@ -57,23 +74,6 @@
       "pos": {
         "filename": "variables.tf",
         "line": 16
-      }
-    },
-    "tags": {
-      "name": "tags",
-      "type": "list(string)",
-      "description": "List of resource tags to apply to resources created by this module.",
-      "default": [],
-      "source": [
-        "ibm_iam_service_id.service_id.tags"
-      ],
-      "pos": {
-        "filename": "variables.tf",
-        "line": 22
-      },
-      "cloud_data_type": "tags",
-      "elem": {
-        "type": "TypeString"
       }
     }
   },
@@ -115,7 +115,7 @@
         "count": "iam_service_provision",
         "description": "iam_service_id_description",
         "name": "iam_service_id_name",
-        "tags": "tags"
+        "tags": "iam_service_id_tags"
       },
       "provider": {
         "name": "ibm"

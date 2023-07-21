@@ -103,9 +103,9 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_iam_service_id_description"></a> [iam\_service\_id\_description](#input\_iam\_service\_id\_description) | Description to Service ID | `string` | `null` | no |
 | <a name="input_iam_service_id_name"></a> [iam\_service\_id\_name](#input\_iam\_service\_id\_name) | Name of the service ID | `string` | n/a | yes |
+| <a name="input_iam_service_id_tags"></a> [iam\_service\_id\_tags](#input\_iam\_service\_id\_tags) | List of resource tags to apply to resources created by this module. | `list(string)` | `[]` | no |
 | <a name="input_iam_service_policies"></a> [iam\_service\_policies](#input\_iam\_service\_policies) | list of policies | <pre>map(object({<br>    roles              = list(string)<br>    account_management = optional(bool)<br>    tags               = optional(set(string))<br>    resources = optional(list(object({<br>      region               = optional(string)<br>      attributes           = optional(map(string))<br>      service              = optional(string)<br>      resource_instance_id = optional(string)<br>      resource_type        = optional(string)<br>      resource             = optional(string)<br>      resource_group_id    = optional(string)<br>    })))<br>    resource_attributes = optional(list(object({<br>      name     = string<br>      value    = string<br>      operator = optional(string)<br>    })))<br>  }))</pre> | n/a | yes |
 | <a name="input_iam_service_provision"></a> [iam\_service\_provision](#input\_iam\_service\_provision) | Provision a new service ID? | `bool` | `true` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | List of resource tags to apply to resources created by this module. | `list(string)` | `[]` | no |
 
 ### Outputs
 

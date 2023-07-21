@@ -12,7 +12,7 @@ resource "ibm_iam_service_id" "service_id" {
   count       = var.iam_service_provision ? 1 : 0
   name        = var.iam_service_id_name
   description = var.iam_service_id_description
-  tags        = var.tags
+  tags        = var.iam_service_id_tags
 }
 
 data "ibm_iam_service_id" "service_id_data" {
@@ -27,10 +27,10 @@ resource "ibm_iam_service_policy" "policy" {
 
   roles              = each.value["roles"]
   account_management = each.value["account_management"]
-  tags               = (each.value["tags"] != null ? each.value["tags"] : null)
+  tags               = each.value["tags"]
 
   dynamic "resources" {
-    for_each = (each.value["resources"] != null ? each.value["resources"] : [])
+    for_each = each.value["resources"]
     content {
       region               = lookup(element(each.value["resources"], 0), "region", null)
       attributes           = lookup(element(each.value["resources"], 0), "attributes", null)
@@ -43,11 +43,11 @@ resource "ibm_iam_service_policy" "policy" {
   }
 
   dynamic "resource_attributes" {
-    for_each = (each.value["resource_attributes"] != null ? each.value["resource_attributes"] : [])
+    for_each = each.value["resource_attributes"]
     content {
       name     = resource_attributes.value.name
       value    = resource_attributes.value.value
-      operator = (resource_attributes.value.operator != null ? resource_attributes.value.operator : null)
+      operator = resource_attributes.value.operator
     }
   }
 }

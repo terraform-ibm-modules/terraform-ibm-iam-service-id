@@ -15,6 +15,12 @@ variable "prefix" {
   default     = "test-iam-service-id"
 }
 
+variable "resource_tags" {
+  description = "List of resource tags to apply to resources created by this module."
+  type        = list(string)
+  default     = []
+}
+
 variable "iam_service_policies" {
   description = "list of policies"
   type = map(object({

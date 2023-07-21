@@ -19,7 +19,7 @@ variable "iam_service_provision" {
   default     = true
 }
 
-variable "tags" {
+variable "iam_service_id_tags" {
   description = "List of resource tags to apply to resources created by this module."
   type        = list(string)
   default     = []
