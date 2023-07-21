@@ -2,17 +2,12 @@
 # Outputs
 ##############################################################################
 
-output "cos_instance_id" {
-  description = "COS instance id"
-  value       = ibm_resource_instance.cos_instance.id
+output "service_id" {
+  description = "The unique identifier of the service ID."
+  value       = module.ibm_iam_service_id.service_id
 }
 
-output "resource_group_name" {
-  description = "Resource group name"
-  value       = module.resource_group.resource_group_name
-}
-
-output "resource_group_id" {
-  description = "Resource group ID"
-  value       = module.resource_group.resource_group_id
+output "service_policy_ids" {
+  description = "List of service policy IDs"
+  value       = module.ibm_iam_service_id.service_policy_ids
 }
