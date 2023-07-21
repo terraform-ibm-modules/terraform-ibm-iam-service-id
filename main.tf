@@ -30,7 +30,7 @@ resource "ibm_iam_service_policy" "policy" {
   tags               = each.value["tags"]
 
   dynamic "resources" {
-    for_each = each.value["resources"]
+    for_each = each.value["resources"] != null ? each.value["resources"] : []
     content {
       region               = lookup(element(each.value["resources"], 0), "region", null)
       attributes           = lookup(element(each.value["resources"], 0), "attributes", null)
@@ -43,7 +43,7 @@ resource "ibm_iam_service_policy" "policy" {
   }
 
   dynamic "resource_attributes" {
-    for_each = each.value["resource_attributes"]
+    for_each = each.value["resource_attributes"] != null ? each.value["resource_attributes"] : []
     content {
       name     = resource_attributes.value.name
       value    = resource_attributes.value.value
