@@ -10,20 +10,10 @@ _extends: repo-settings:.github/common-settings-v2.yml
 # repo-specific settings
 #
 repository:
-  # See https://terraform-ibm-modules.github.io/documentation/#/implementation-guidelines?id=module-names-and-descriptions
-
   # By changing this field, you rename the repository.
-
-  # Uncomment this name property and set the name to the current repo name.
-  # name: ""
+  name: "terraform-ibm-iam-service-id"
 
   # The description is displayed under the repository name on the
   # organization page and in the 'About' section of the repository.
-
-  # Uncomment this description property
-  # and update the description to the current repo description.
-  # description: ""
-
-  # Uncomment this topics property
-  # and add a comma-separated list of topics to set on the repo.
-  # topics: terraform, ibm-cloud, terraform-module
+  description: "Create an IAM service IDs and adds policies to them."
+  topics: terraform, ibm-cloud, terraform-module, iam, service-id
