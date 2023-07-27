@@ -32,16 +32,27 @@ module "iam_service_ids" {
   source                     = "terraform-ibm-modules/terraform-ibm-iam-service-id"
   version                    = "latest" # Replace "latest" with a release version to lock into a specific release
   iam_service_id_name        = "my-iam-service-id"
-  iam_service_id_tags        = var.resource_tags
+  iam_service_id_tags        = ["my-iam-service-id-tag"]
   iam_service_id_description = "my-iam-service-id-description"
-  iam_service_policies       = var.iam_service_policies
+  iam_service_policies       = {
+                                my_policy_1 = {
+                                    roles = ["Viewer"]
+                                    tags  = ["iam-service-policy-1"]
+                                }
+                                my_policy_2 = {
+                                    roles = ["Viewer"]
+                                    tags  = ["iam-service-policy-2"]
+                                }
+                            }
 }
 ```
 
 ### Required IAM access policies
 
-If an account has service ID creation blocked (which an fscloud compliant account will), you need to explicitly grant “Service ID creator” to users in order to be able to grant access.
-For more information, see [Creating and working with service IDs](https://cloud.ibm.com/docs/account?topic=account-serviceids&interface=ui).
+All users have access to create a service ID in an account to which they are a member. However, to allow a user in an account access to view or manage a service ID that they did not personally create, they are required to have access with a role on the IAM identity service account management service. For more information, see [IAM identity service](https://cloud.ibm.com/docs/account?topic=account-account-services&interface=ui#identity-service-account-management).
+
+❗ If the Restrict service ID creation IAM account setting is enabled, then everyone in the account, including account owners, is blocked from creating service IDs unless they are assigned explicit access. For more information, see [Restricting users from creating service IDs](https://cloud.ibm.com/docs/account?topic=account-restrict-service-id-create&interface=ui).
+
 <!-- END MODULE HOOK -->
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ### Requirements
