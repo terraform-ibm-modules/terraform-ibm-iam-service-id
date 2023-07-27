@@ -29,21 +29,12 @@ provider "ibm" {
 }
 
 module "iam_service_ids" {
-  source      = "terraform-ibm-modules/terraform-ibm-iam-service-id"
-  version     = "latest" # Replace "latest" with a release version to lock into a specific release
-  name        = "my-iam-service-id"
-  tags        = ["my-iam-service-id-tag"]
-  description = "my-iam-service-id-description"
-  policies    = {
-                    my_policy_1 = {
-                        roles = ["Viewer"]
-                        tags  = ["iam-service-policy-1"]
-                    }
-                    my_policy_2 = {
-                        roles = ["Viewer"]
-                        tags  = ["iam-service-policy-2"]
-                    }
-                }
+  source                     = "terraform-ibm-modules/terraform-ibm-iam-service-id"
+  version                    = "latest" # Replace "latest" with a release version to lock into a specific release
+  iam_service_id_name        = "my-iam-service-id"
+  iam_service_id_tags        = var.resource_tags
+  iam_service_id_description = "my-iam-service-id-description"
+  iam_service_policies       = var.iam_service_policies
 }
 ```
 
