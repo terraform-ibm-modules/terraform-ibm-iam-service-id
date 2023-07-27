@@ -1,12 +1,163 @@
 {
   "path": ".",
-  "variables": {},
-  "outputs": {},
+  "variables": {
+    "iam_service_id_description": {
+      "name": "iam_service_id_description",
+      "type": "string",
+      "description": "Description to Service ID",
+      "source": [
+        "ibm_iam_service_id.service_id.description"
+      ],
+      "pos": {
+        "filename": "variables.tf",
+        "line": 10
+      }
+    },
+    "iam_service_id_name": {
+      "name": "iam_service_id_name",
+      "type": "string",
+      "description": "Name of the service ID",
+      "required": true,
+      "source": [
+        "data.ibm_iam_service_id.service_id_data.name",
+        "ibm_iam_service_id.service_id.name"
+      ],
+      "pos": {
+        "filename": "variables.tf",
+        "line": 5
+      },
+      "cloud_data_type": "iam",
+      "cloud_data_range": [
+        "service:service_id",
+        "resolved_to:name"
+      ]
+    },
+    "iam_service_id_tags": {
+      "name": "iam_service_id_tags",
+      "type": "list(string)",
+      "description": "List of resource tags to apply to resources created by this module.",
+      "default": [],
+      "source": [
+        "ibm_iam_service_id.service_id.tags"
+      ],
+      "pos": {
+        "filename": "variables.tf",
+        "line": 22
+      },
+      "cloud_data_type": "tags",
+      "elem": {
+        "type": "TypeString"
+      }
+    },
+    "iam_service_policies": {
+      "name": "iam_service_policies",
+      "type": "map(object({\n    roles              = list(string)\n    account_management = optional(bool)\n    tags               = optional(set(string))\n    resources = optional(list(object({\n      region               = optional(string)\n      attributes           = optional(map(string))\n      service              = optional(string)\n      resource_instance_id = optional(string)\n      resource_type        = optional(string)\n      resource             = optional(string)\n      resource_group_id    = optional(string)\n    })))\n    resource_attributes = optional(list(object({\n      name     = string\n      value    = string\n      operator = optional(string)\n    })))\n  }))",
+      "description": "list of policies",
+      "required": true,
+      "source": [
+        "ibm_iam_service_policy.policy.for_each"
+      ],
+      "pos": {
+        "filename": "variables.tf",
+        "line": 34
+      }
+    },
+    "iam_service_provision": {
+      "name": "iam_service_provision",
+      "type": "bool",
+      "description": "Provision a new service ID?",
+      "default": true,
+      "source": [
+        "data.ibm_iam_service_id.service_id_data.count",
+        "ibm_iam_service_id.service_id.count"
+      ],
+      "pos": {
+        "filename": "variables.tf",
+        "line": 16
+      }
+    }
+  },
+  "outputs": {
+    "service_id": {
+      "name": "service_id",
+      "description": "The unique identifier of the service ID.",
+      "pos": {
+        "filename": "outputs.tf",
+        "line": 5
+      }
+    },
+    "service_policy_ids": {
+      "name": "service_policy_ids",
+      "description": "List of service policy IDs",
+      "pos": {
+        "filename": "outputs.tf",
+        "line": 10
+      }
+    }
+  },
   "required_core": [
     "\u003e= 1.3.0"
   ],
-  "required_providers": {},
-  "managed_resources": {},
-  "data_resources": {},
+  "required_providers": {
+    "ibm": {
+      "source": "ibm-cloud/ibm",
+      "version_constraints": [
+        "\u003e= 1.51.0"
+      ]
+    }
+  },
+  "managed_resources": {
+    "ibm_iam_service_id.service_id": {
+      "mode": "managed",
+      "type": "ibm_iam_service_id",
+      "name": "service_id",
+      "attributes": {
+        "count": "iam_service_provision",
+        "description": "iam_service_id_description",
+        "name": "iam_service_id_name",
+        "tags": "iam_service_id_tags"
+      },
+      "provider": {
+        "name": "ibm"
+      },
+      "pos": {
+        "filename": "main.tf",
+        "line": 11
+      }
+    },
+    "ibm_iam_service_policy.policy": {
+      "mode": "managed",
+      "type": "ibm_iam_service_policy",
+      "name": "policy",
+      "attributes": {
+        "for_each": "iam_service_policies"
+      },
+      "provider": {
+        "name": "ibm"
+      },
+      "pos": {
+        "filename": "main.tf",
+        "line": 23
+      }
+    }
+  },
+  "data_resources": {
+    "data.ibm_iam_service_id.service_id_data": {
+      "mode": "data",
+      "type": "ibm_iam_service_id",
+      "name": "service_id_data",
+      "attributes": {
+        "count": "iam_service_provision",
+        "name": "iam_service_id_name"
+      },
+      "provider": {
+        "name": "ibm"
+      },
+      "pos": {
+        "filename": "main.tf",
+        "line": 18
+      }
+    }
+  },
   "module_calls": {}
 }

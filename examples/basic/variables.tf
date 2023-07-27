@@ -1,33 +1,51 @@
 ##############################################################################
-# Input variables
+# Input Variables
 ##############################################################################
 
 variable "ibmcloud_api_key" {
   type        = string
-  description = "The IBM Cloud API Key"
+  description = "Restricted IBM Cloud API Key used only for writing Log Analysis archives to Cloud Object Storage"
+  default     = null
   sensitive   = true
 }
 
-variable "region" {
-  type        = string
-  description = "Region to provision all resources created by this example"
-  default     = "us-south"
-}
-
 variable "prefix" {
+  description = "Name of the service ID"
   type        = string
-  description = "Prefix to append to all resources created by this example"
-  default     = "basic"
-}
-
-variable "resource_group" {
-  type        = string
-  description = "The name of an existing resource group to provision resources in to. If not set a new resource group will be created using the prefix variable"
-  default     = null
+  default     = "test-iam-service-id"
 }
 
 variable "resource_tags" {
+  description = "List of resource tags to apply to resources created by this module."
   type        = list(string)
-  description = "Optional list of tags to be added to created resources"
   default     = []
+}
+
+variable "iam_service_policies" {
+  description = "list of policies"
+  type = map(object({
+    roles              = list(string)
+    account_management = optional(bool)
+    tags               = optional(set(string))
+    resources = optional(list(object({
+      region               = optional(string)
+      attributes           = optional(map(string))
+      service              = optional(string)
+      resource_instance_id = optional(string)
+      resource_type        = optional(string)
+      resource             = optional(string)
+      resource_group_id    = optional(string)
+    })))
+    resource_attributes = optional(list(object({
+      name     = string
+      value    = string
+      operator = optional(string)
+    })))
+  }))
+  default = {
+    test = {
+      roles = ["Viewer", "Manager"]
+      tags  = ["iam-service-policy-example-test"]
+    }
+  }
 }
