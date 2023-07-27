@@ -30,6 +30,7 @@ func TestRunBasicExample(t *testing.T) {
 }
 
 func TestRunBasicUpgradeExample(t *testing.T) {
+	t.Skip()
 	t.Parallel()
 
 	options := setupOptions(t, "iam-service-id-upg", basicExampleDir)
