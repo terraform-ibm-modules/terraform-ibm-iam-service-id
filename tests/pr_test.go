@@ -16,6 +16,12 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 		TerraformDir: dir,
 		Prefix:       prefix,
 	})
+
+	options.TerraformVars = map[string]interface{}{
+		"prefix":        options.Prefix,
+		"resource_tags": options.Tags,
+	}
+
 	return options
 }
 
