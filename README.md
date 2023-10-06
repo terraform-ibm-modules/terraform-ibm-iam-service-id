@@ -16,8 +16,6 @@ This module is used to create a IAM service IDs and add policies to them. A serv
 * [Examples](./examples)
     * [Basic example](./examples/basic)
 * [Contributing](#contributing)
-
-## terraform-ibm-iam-service-id
 <!-- END OVERVIEW HOOK -->
 
 ### Usage
