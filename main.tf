@@ -6,6 +6,7 @@
 
 locals {
   iam_service_id = var.iam_service_provision ? ibm_iam_service_id.service_id[0].id : data.ibm_iam_service_id.service_id_data[0].service_ids[0].id
+  iam_id         = var.iam_service_provision ? ibm_iam_service_id.service_id[0].iam_id : data.ibm_iam_service_id.service_id_data[0].service_ids[0].iam_id
 }
 
 resource "ibm_iam_service_id" "service_id" {
@@ -18,6 +19,13 @@ resource "ibm_iam_service_id" "service_id" {
 data "ibm_iam_service_id" "service_id_data" {
   count = var.iam_service_provision ? 0 : 1
   name  = var.iam_service_id_name
+}
+
+resource "ibm_iam_service_api_key" "service_id_apikey" {
+  count          = var.iam_service_id_apikey_provision ? 1 : 0
+  name           = "${var.iam_service_id_name}-apikey"
+  iam_service_id = local.iam_id
+  description    = var.iam_service_id_apikey_description
 }
 
 resource "ibm_iam_service_policy" "policy" {
