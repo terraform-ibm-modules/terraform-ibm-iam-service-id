@@ -26,7 +26,7 @@ variable "iam_service_id_tags" {
 }
 
 variable "iam_service_id_apikey_provision" {
-  description = "Enable to create an IAM service ID API key."
+  description = "Create an API key for this service ID?"
   type        = bool
   default     = false
 }

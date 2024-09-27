@@ -78,7 +78,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_iam_service_id_apikey_description"></a> [iam\_service\_id\_apikey\_description](#input\_iam\_service\_id\_apikey\_description) | Description to Service ID API key. | `string` | `null` | no |
-| <a name="input_iam_service_id_apikey_provision"></a> [iam\_service\_id\_apikey\_provision](#input\_iam\_service\_id\_apikey\_provision) | Enable to create an IAM service ID API key. | `bool` | `false` | no |
+| <a name="input_iam_service_id_apikey_provision"></a> [iam\_service\_id\_apikey\_provision](#input\_iam\_service\_id\_apikey\_provision) | Create an API key for this service ID? | `bool` | `false` | no |
 | <a name="input_iam_service_id_description"></a> [iam\_service\_id\_description](#input\_iam\_service\_id\_description) | Description to Service ID | `string` | `null` | no |
 | <a name="input_iam_service_id_name"></a> [iam\_service\_id\_name](#input\_iam\_service\_id\_name) | Name of the service ID | `string` | n/a | yes |
 | <a name="input_iam_service_id_tags"></a> [iam\_service\_id\_tags](#input\_iam\_service\_id\_tags) | List of resource tags to apply to resources created by this module. | `list(string)` | `[]` | no |
