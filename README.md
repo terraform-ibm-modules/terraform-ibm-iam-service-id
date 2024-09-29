@@ -68,6 +68,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [ibm_iam_service_api_key.service_id_apikey](https://registry.terraform.io/providers/ibm-cloud/ibm/latest/docs/resources/iam_service_api_key) | resource |
 | [ibm_iam_service_id.service_id](https://registry.terraform.io/providers/ibm-cloud/ibm/latest/docs/resources/iam_service_id) | resource |
 | [ibm_iam_service_policy.policy](https://registry.terraform.io/providers/ibm-cloud/ibm/latest/docs/resources/iam_service_policy) | resource |
 | [ibm_iam_service_id.service_id_data](https://registry.terraform.io/providers/ibm-cloud/ibm/latest/docs/data-sources/iam_service_id) | data source |
@@ -76,6 +77,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_iam_service_id_apikey_description"></a> [iam\_service\_id\_apikey\_description](#input\_iam\_service\_id\_apikey\_description) | Description to Service ID API key. | `string` | `null` | no |
+| <a name="input_iam_service_id_apikey_provision"></a> [iam\_service\_id\_apikey\_provision](#input\_iam\_service\_id\_apikey\_provision) | Create an API key for this service ID? | `bool` | `false` | no |
 | <a name="input_iam_service_id_description"></a> [iam\_service\_id\_description](#input\_iam\_service\_id\_description) | Description to Service ID | `string` | `null` | no |
 | <a name="input_iam_service_id_name"></a> [iam\_service\_id\_name](#input\_iam\_service\_id\_name) | Name of the service ID | `string` | n/a | yes |
 | <a name="input_iam_service_id_tags"></a> [iam\_service\_id\_tags](#input\_iam\_service\_id\_tags) | List of resource tags to apply to resources created by this module. | `list(string)` | `[]` | no |
@@ -86,7 +89,9 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_iam_id"></a> [iam\_id](#output\_iam\_id) | The IAM ID of the service ID. |
 | <a name="output_service_id"></a> [service\_id](#output\_service\_id) | The unique identifier of the service ID. |
+| <a name="output_service_id_apikey"></a> [service\_id\_apikey](#output\_service\_id\_apikey) | The API key created in the service ID. |
 | <a name="output_service_policy_ids"></a> [service\_policy\_ids](#output\_service\_policy\_ids) | List of service policy IDs |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

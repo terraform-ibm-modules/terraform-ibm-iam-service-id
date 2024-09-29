@@ -25,6 +25,18 @@ variable "iam_service_id_tags" {
   default     = []
 }
 
+variable "iam_service_id_apikey_provision" {
+  description = "Create an API key for this service ID?"
+  type        = bool
+  default     = false
+}
+
+variable "iam_service_id_apikey_description" {
+  description = "Description to Service ID API key."
+  type        = string
+  default     = null
+}
+
 ##############################################################################
 
 ##############################################################################
