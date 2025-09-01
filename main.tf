@@ -29,7 +29,7 @@ resource "ibm_iam_service_api_key" "service_id_apikey" {
 }
 
 resource "ibm_iam_service_policy" "policy" {
-  iam_service_id = local.iam_service_id
+  iam_id = local.iam_id
 
   for_each = var.iam_service_policies
 
