@@ -5,8 +5,7 @@
 ##############################################################################
 
 locals {
-  iam_service_id = var.iam_service_provision ? ibm_iam_service_id.service_id[0].id : data.ibm_iam_service_id.service_id_data[0].service_ids[0].id
-  iam_id         = var.iam_service_provision ? ibm_iam_service_id.service_id[0].iam_id : data.ibm_iam_service_id.service_id_data[0].service_ids[0].iam_id
+  iam_id = var.iam_service_provision ? ibm_iam_service_id.service_id[0].iam_id : data.ibm_iam_service_id.service_id_data[0].service_ids[0].iam_id
 }
 
 resource "ibm_iam_service_id" "service_id" {
@@ -29,7 +28,7 @@ resource "ibm_iam_service_api_key" "service_id_apikey" {
 }
 
 resource "ibm_iam_service_policy" "policy" {
-  iam_service_id = local.iam_service_id
+  iam_id = local.iam_id
 
   for_each = var.iam_service_policies
 
