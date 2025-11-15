@@ -14,7 +14,7 @@ This module is used to create a IAM service IDs and add policies to them. A serv
 ## Overview
 * [terraform-ibm-iam-service-id](#terraform-ibm-iam-service-id)
 * [Examples](./examples)
-    * <div style="display: inline-block;"><a href="./examples/basic">Basic example</a></div> <div style="display: inline-block; vertical-align: middle;"><a href="https://cloud.ibm.com/schematics/workspaces/create?workspace_name=isi-basic-example&repository=github.com/terraform-ibm-modules/terraform-ibm-iam-service-id/tree/main/examples/basic" target="_blank"><img src="https://cloud.ibm.com/media/docs/images/icons/Deploy_to_cloud.svg" alt="Deploy to IBM Cloud button"></a></div>
+    * <div style="display: inline-block;"><a href="./examples/basic">Basic example</a></div> <div style="display: inline-block; vertical-align: middle;"><a href="https://cloud.ibm.com/schematics/workspaces/create?workspace_name=isi-basic-example&repository=https://github.com/terraform-ibm-modules/terraform-ibm-iam-service-id/tree/main/examples/basic" target="_blank"><img src="https://cloud.ibm.com/media/docs/images/icons/Deploy_to_cloud.svg" alt="Deploy to IBM Cloud button"></a></div>
 * [Contributing](#contributing)
 <!-- END OVERVIEW HOOK -->
 
