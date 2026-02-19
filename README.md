@@ -7,6 +7,7 @@
 [![latest release](https://img.shields.io/github/v/release/terraform-ibm-modules/terraform-ibm-iam-service-id?logo=GitHub&sort=semver)](https://github.com/terraform-ibm-modules/terraform-ibm-iam-service-id/releases/latest)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Terraform Registry](https://img.shields.io/badge/terraform-registry-623CE4?logo=terraform)](https://registry.terraform.io/modules/terraform-ibm-modules/iam-service-id/ibm/latest)
 
 This module is used to create a IAM service IDs and add policies to them. A service ID identifies a service or application similar to how a user ID identifies a user. Create service IDs to enable access to your IBM Cloud services by applications hosted both inside and outside of IBM Cloud.
 
