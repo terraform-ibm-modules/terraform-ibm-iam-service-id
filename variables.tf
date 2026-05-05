@@ -19,10 +19,14 @@ variable "iam_service_provision" {
   default     = true
 }
 
-variable "iam_service_id_tags" {
-  description = "List of resource tags to apply to resources created by this module."
+variable "resource_tags" {
+  description = "Add user resource tags to the IAM Service IDs instance to organize, track, and manage costs. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#tag-types)."
   type        = list(string)
   default     = []
+  validation {
+    condition     = alltrue([for tag in var.resource_tags : can(regex("^[A-Za-z0-9 _\\-.:](1, 128)$", tag))])
+    error_message = "Each resource tag must be 128 characters or less and may contain only A-Z, a-z, 0-9, spaces, underscore (_), hyphen (-), period (.), and colon (:)."
+  }
 }
 
 variable "iam_service_id_apikey_provision" {
