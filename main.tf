@@ -12,7 +12,7 @@ resource "ibm_iam_service_id" "service_id" {
   count       = var.iam_service_provision ? 1 : 0
   name        = var.iam_service_id_name
   description = var.iam_service_id_description
-  tags        = var.iam_service_id_tags
+  tags        = var.resource_tags
 }
 
 data "ibm_iam_service_id" "service_id_data" {
