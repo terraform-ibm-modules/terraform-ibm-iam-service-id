@@ -40,7 +40,7 @@ module "iam_service_ids" {
   source                     = "terraform-ibm-modules/terraform-ibm-iam-service-id"
   version                    = "latest" # Replace "latest" with a release version to lock into a specific release
   iam_service_id_name        = "my-iam-service-id"
-  iam_service_id_tags        = ["my-iam-service-id-tag"]
+  resource_tags              = ["my-iam-service-id-tag"]
   iam_service_id_description = "my-iam-service-id-description"
   iam_service_policies       = {
                                 my_policy_1 = {
