@@ -2,8 +2,6 @@ module github.com/terraform-ibm-modules/terraform-ibm-iam-service-id
 
 go 1.26.1
 
-toolchain go1.27.1
-
 require (
 	github.com/stretchr/testify v1.12.1
 	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.77.6
