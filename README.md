@@ -66,7 +66,7 @@ All users have access to create a service ID in an account to which they are a m
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.83.0, < 3.0.0 |
 
@@ -77,7 +77,7 @@ No modules.
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [ibm_iam_service_api_key.service_id_apikey](https://registry.terraform.io/providers/ibm-cloud/ibm/latest/docs/resources/iam_service_api_key) | resource |
 | [ibm_iam_service_id.service_id](https://registry.terraform.io/providers/ibm-cloud/ibm/latest/docs/resources/iam_service_id) | resource |
 | [ibm_iam_service_policy.policy](https://registry.terraform.io/providers/ibm-cloud/ibm/latest/docs/resources/iam_service_policy) | resource |
@@ -86,7 +86,7 @@ No modules.
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_iam_service_id_apikey_description"></a> [iam\_service\_id\_apikey\_description](#input\_iam\_service\_id\_apikey\_description) | Description to Service ID API key. | `string` | `null` | no |
 | <a name="input_iam_service_id_apikey_provision"></a> [iam\_service\_id\_apikey\_provision](#input\_iam\_service\_id\_apikey\_provision) | Create an API key for this service ID? | `bool` | `false` | no |
 | <a name="input_iam_service_id_description"></a> [iam\_service\_id\_description](#input\_iam\_service\_id\_description) | Description to Service ID | `string` | `null` | no |
@@ -98,7 +98,7 @@ No modules.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_iam_id"></a> [iam\_id](#output\_iam\_id) | The IAM ID of the service ID. |
 | <a name="output_service_id"></a> [service\_id](#output\_service\_id) | The unique identifier of the service ID. |
 | <a name="output_service_id_apikey"></a> [service\_id\_apikey](#output\_service\_id\_apikey) | The API key created in the service ID. |
